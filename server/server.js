@@ -1,28 +1,27 @@
 const express = require('express');
-const cors = require('cors');
-const dotenv = require('dotenv');
+const bodyParser = require('body-parser');
 
-// Load environment variables
-dotenv.config();
-
-// Import routes
 const ocrRoutes = require('./routes/ocr');
-const vendorsRoutes = require('./routes/vendors');
+const vendorRoutes = require('./routes/vendors');
 const qboRoutes = require('./routes/qbo');
 
 const app = express();
+const port = process.env.PORT || 3001;
 
 // Middleware
-app.use(cors());
-app.use(express.json());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
-// Routes
+// API Routes
 app.use('/api/ocr', ocrRoutes);
-app.use('/api/vendors', vendorsRoutes);
+app.use('/api/vendors', vendorRoutes);
 app.use('/api/qbo', qboRoutes);
 
-const PORT = process.env.PORT || 5000;
+// Basic health check
+app.get('/', (req, res) => {
+  res.send('Financial Suite API is up and running.');
+});
 
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
 });

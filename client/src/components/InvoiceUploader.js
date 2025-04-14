@@ -1,65 +1,66 @@
 import React, { useState } from 'react';
-import { Button, Typography, CircularProgress, Box } from '@mui/material';
-import { CloudUpload as CloudUploadIcon } from '@mui/icons-material';
-import axios from 'axios';
+import '../styles/InvoiceUploader.css';
 
-const InvoiceUploader = () => {
-  const [loading, setLoading] = useState(false);
+function InvoiceUploader() {
+  const [file, setFile] = useState(null);
+  const [uploading, setUploading] = useState(false);
   const [result, setResult] = useState(null);
 
-  const handleFileUpload = async (event) => {
-    const file = event.target.files[0];
+  const handleFileChange = (e) => {
+    if (e.target.files[0]) {
+      setFile(e.target.files[0]);
+    }
+  };
+
+  const handleUpload = async () => {
     if (!file) return;
 
     const formData = new FormData();
     formData.append('invoice', file);
+    setUploading(true);
 
-    setLoading(true);
     try {
-      const response = await axios.post('/api/ocr/process', formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
+      const response = await fetch('http://localhost:3001/api/ocr/process', {
+        method: 'POST',
+        body: formData,
       });
-      setResult(response.data);
+
+      const data = await response.json();
+      setResult(data);
     } catch (error) {
-      console.error('Error processing invoice:', error);
-      setResult({ error: 'Failed to process invoice' });
+      console.error('Error uploading file:', error);
+      setResult({ error: 'Failed to upload file' });
     }
-    setLoading(false);
+
+    setUploading(false);
   };
 
   return (
-    <Box>
-      <Typography variant="h6" gutterBottom>
-        Upload Invoice
-      </Typography>
-      <input
-        accept="image/*,.pdf"
-        style={{ display: 'none' }}
-        id="invoice-upload"
-        type="file"
-        onChange={handleFileUpload}
-      />
-      <label htmlFor="invoice-upload">
-        <Button
-          variant="contained"
-          component="span"
-          startIcon={<CloudUploadIcon />}
-          disabled={loading}
+    <div className="invoice-uploader">
+      <h2>Upload Invoice</h2>
+      <div className="upload-container">
+        <input
+          type="file"
+          accept=".pdf,.png,.jpg,.jpeg"
+          onChange={handleFileChange}
+          className="file-input"
+        />
+        <button 
+          onClick={handleUpload} 
+          disabled={!file || uploading}
+          className="upload-button"
         >
-          Upload Invoice
-        </Button>
-      </label>
-      {loading && <CircularProgress style={{ marginTop: 20 }} />}
+          {uploading ? 'Uploading...' : 'Upload'}
+        </button>
+      </div>
       {result && (
-        <Box mt={2}>
-          <Typography variant="subtitle1">Results:</Typography>
+        <div className="result-container">
+          <h3>Results:</h3>
           <pre>{JSON.stringify(result, null, 2)}</pre>
-        </Box>
+        </div>
       )}
-    </Box>
+    </div>
   );
-};
+}
 
 export default InvoiceUploader;

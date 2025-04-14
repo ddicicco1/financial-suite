@@ -1,58 +1,55 @@
 import React, { useState, useEffect } from 'react';
-import {
-  List,
-  ListItem,
-  ListItemText,
-  Typography,
-  CircularProgress,
-  Box
-} from '@mui/material';
-import axios from 'axios';
+import '../styles/VendorList.css';
 
-const VendorList = () => {
+function VendorList() {
   const [vendors, setVendors] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchVendors = async () => {
-      try {
-        const response = await axios.get('/api/vendors');
-        setVendors(response.data.vendors);
-      } catch (error) {
-        console.error('Error fetching vendors:', error);
-      }
-      setLoading(false);
-    };
-
     fetchVendors();
   }, []);
 
+  const fetchVendors = async () => {
+    try {
+      const response = await fetch('http://localhost:3001/api/vendors');
+      const data = await response.json();
+      setVendors(data.vendors || []);
+      setError(null);
+    } catch (err) {
+      console.error('Error fetching vendors:', err);
+      setError('Failed to load vendors');
+    } finally {
+      setLoading(false);
+    }
+  };
+
   if (loading) {
-    return <CircularProgress />;
+    return <div className="vendor-list loading">Loading vendors...</div>;
+  }
+
+  if (error) {
+    return <div className="vendor-list error">{error}</div>;
   }
 
   return (
-    <Box>
-      <Typography variant="h6" gutterBottom>
-        Vendors
-      </Typography>
-      <List>
-        {vendors.map((vendor, index) => (
-          <ListItem key={vendor.id || index}>
-            <ListItemText
-              primary={vendor.name}
-              secondary={vendor.email}
-            />
-          </ListItem>
-        ))}
-        {vendors.length === 0 && (
-          <ListItem>
-            <ListItemText primary="No vendors found" />
-          </ListItem>
-        )}
-      </List>
-    </Box>
+    <div className="vendor-list">
+      <h2>Vendors</h2>
+      {vendors.length === 0 ? (
+        <p>No vendors found</p>
+      ) : (
+        <ul className="vendor-items">
+          {vendors.map((vendor) => (
+            <li key={vendor.id} className="vendor-item">
+              <h3>{vendor.name}</h3>
+              <p>{vendor.email}</p>
+              {vendor.phone && <p>{vendor.phone}</p>}
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
   );
-};
+}
 
 export default VendorList;

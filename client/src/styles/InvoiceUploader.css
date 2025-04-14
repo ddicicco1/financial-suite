@@ -1,0 +1,43 @@
+.invoice-uploader {
+  text-align: left;
+}
+
+.upload-container {
+  margin: 20px 0;
+}
+
+.file-input {
+  margin-bottom: 10px;
+  display: block;
+}
+
+.upload-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.upload-button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.result-container {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #f8f9fa;
+  border-radius: 4px;
+}
+
+.result-container pre {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  background-color: #e9ecef;
+  padding: 10px;
+  border-radius: 4px;
+  font-size: 14px;
+}

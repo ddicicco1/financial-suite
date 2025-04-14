@@ -1,28 +1,21 @@
 import React from 'react';
-import { Grid, Paper, Typography } from '@mui/material';
 import InvoiceUploader from './InvoiceUploader';
 import VendorList from './VendorList';
+import '../styles/Dashboard.css';
 
-const Dashboard = () => {
+function Dashboard() {
   return (
-    <div style={{ padding: 20 }}>
-      <Typography variant="h4" gutterBottom>
-        Financial Suite Dashboard
-      </Typography>
-      <Grid container spacing={3}>
-        <Grid item xs={12} md={6}>
-          <Paper style={{ padding: 20 }}>
-            <InvoiceUploader />
-          </Paper>
-        </Grid>
-        <Grid item xs={12} md={6}>
-          <Paper style={{ padding: 20 }}>
-            <VendorList />
-          </Paper>
-        </Grid>
-      </Grid>
+    <div className="dashboard">
+      <div className="dashboard-grid">
+        <div className="dashboard-item">
+          <InvoiceUploader />
+        </div>
+        <div className="dashboard-item">
+          <VendorList />
+        </div>
+      </div>
     </div>
   );
-};
+}
 
 export default Dashboard;

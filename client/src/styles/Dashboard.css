@@ -1,76 +1,50 @@
 .dashboard {
+  padding: 20px;
+}
+
+.dashboard h2 {
+  color: #a6ff00;
+  margin-bottom: 20px;
+}
+
+.dashboard h3 {
+  color: #fff;
+  margin: 20px 0;
+}
+
+.dashboard ul {
+  list-style: none;
+  padding: 0;
+}
+
+.dashboard li {
+  background-color: #111;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  border: 1px solid #333;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dashboard li:hover {
+  border-color: #a6ff00;
+  transform: translateX(5px);
+  transition: all 0.2s ease;
+}
+
+.invoice-section {
+  background-color: #111;
+  padding: 20px;
+  border-radius: 8px;
+  margin: 20px 0;
+  border: 1px solid #333;
+}
+
+.grid-layout {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 20px;
-  padding: 20px 0;
-}
-
-.dashboard-card {
-  background-color: #111;
-  border-radius: 8px;
-  padding: 20px;
-  border: 1px solid #333;
-}
-
-.dashboard-card h2 {
-  color: #a6ff00;
-  font-size: 18px;
-  margin-bottom: 20px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.invoice-list {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.invoice-item {
-  background-color: #1a1a1a;
-  border-radius: 6px;
-  padding: 15px;
-  border: 1px solid #333;
-}
-
-.invoice-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 10px;
-}
-
-.vendor-name {
-  font-weight: bold;
-  color: #fff;
-}
-
-.status {
-  padding: 4px 8px;
-  border-radius: 12px;
-  font-size: 12px;
-  text-transform: capitalize;
-}
-
-.status.processed {
-  background-color: #a6ff00;
-  color: #000;
-}
-
-.status.pending {
-  background-color: #333;
-  color: #fff;
-}
-
-.invoice-details {
-  display: flex;
-  justify-content: space-between;
-  color: #888;
-  font-size: 14px;
-}
-
-.amount {
-  color: #a6ff00;
-  font-weight: bold;
+  margin-top: 20px;
 }

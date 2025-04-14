@@ -1,8 +1,7 @@
 import React from 'react';
 import '../styles/VendorList.css';
 
-const VendorList = ({ vendors = [] }) => {
-  // Helper function to format the date
+const VendorList = ({ vendors }) => {
   const formatDate = (dateString) => {
     try {
       return new Date(dateString).toLocaleString('en-US', {
@@ -17,33 +16,23 @@ const VendorList = ({ vendors = [] }) => {
     }
   };
 
-  // If no vendors, show empty state
-  if (!vendors.length) {
-    return (
-      <div className="vendor-list">
-        <h3>Vendors</h3>
-        <div className="no-vendors">
-          No vendors found
-        </div>
-      </div>
-    );
-  }
-
   return (
     <div className="vendor-list">
-      <h3>Vendors ({vendors.length})</h3>
-      <ul>
-        {vendors.map((vendor) => (
-          <li key={vendor.id || vendor.name}>
-            <span className="vendor-name">
-              {vendor.name}
-            </span>
-            <span className="vendor-updated">
-              Last Updated: {formatDate(vendor.lastUpdated)}
-            </span>
-          </li>
-        ))}
-      </ul>
+      <h3>Vendors</h3>
+      {vendors && vendors.length > 0 ? (
+        <ul>
+          {vendors.map((vendor) => (
+            <li key={vendor.id} className="vendor-item">
+              <span className="vendor-name">{vendor.name}</span>
+              <span className="vendor-updated">
+                Last Updated: {formatDate(vendor.lastUpdated)}
+              </span>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <div className="no-vendors">No vendors found</div>
+      )}
     </div>
   );
 };

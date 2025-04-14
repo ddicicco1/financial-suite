@@ -1,39 +1,45 @@
 .vendor-list {
   background-color: #111;
   border-radius: 8px;
-  padding: 15px;
+  padding: 20px;
+  border: 1px solid #333;
 }
 
 .vendor-list h3 {
   color: #a6ff00;
-  margin-bottom: 15px;
+  margin: 0 0 20px 0;
+  font-size: 18px;
 }
 
 .vendor-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-.vendor-list li {
+.vendor-item {
   background-color: #1a1a1a;
   padding: 15px;
   border-radius: 6px;
   border: 1px solid #333;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  transition: transform 0.2s ease;
+  flex-direction: column;
+  gap: 5px;
+  transition: all 0.2s ease;
 }
 
-.vendor-list li:hover {
-  transform: translateX(5px);
+.vendor-item:hover {
   border-color: #a6ff00;
+  transform: translateX(5px);
 }
 
 .vendor-name {
   color: #fff;
   font-weight: bold;
+  font-size: 16px;
 }
 
 .vendor-updated {
@@ -42,10 +48,26 @@
 }
 
 .no-vendors {
-  color: #888;
   text-align: center;
   padding: 20px;
   background-color: #1a1a1a;
   border-radius: 6px;
+  color: #888;
+  font-style: italic;
   border: 1px solid #333;
 }
+
+/* Animation for new vendors */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.vendor-item {
+  animation: fadeIn 0.3s ease-out;

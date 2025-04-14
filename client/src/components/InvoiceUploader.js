@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import '../styles/InvoiceUploader.css';
 
-const InvoiceUploader = () => {
+const InvoiceUploader = ({ setInvoices }) => {
   const [imageData, setImageData] = useState(null);
   const [invoiceResult, setInvoiceResult] = useState(null);
 
@@ -29,18 +29,33 @@ const InvoiceUploader = () => {
     
     const data = await response.json();
     setInvoiceResult(data);
+    
+    // For demo purposes, add a new invoice to the list using dummy data
+    setInvoices(prev => [
+      ...prev, 
+      { id: Date.now(), vendor: 'New Vendor', amount: parseFloat((Math.random() * 100).toFixed(2)), date: new Date().toISOString().slice(0,10) }
+    ]);
   };
 
   return (
-    <div>
+    <div className="invoice-uploader">
       <h3>Upload Invoice</h3>
-      <form onSubmit={handleSubmit}>
-        <input type="file" accept="image/*" onChange={handleFileChange} />
-        <button type="submit">Process Invoice</button>
+      <form onSubmit={handleSubmit} className="upload-form">
+        <div className="file-input-container">
+          <input 
+            type="file" 
+            accept="image/*" 
+            onChange={handleFileChange}
+            className="file-input" 
+          />
+        </div>
+        <button type="submit" className="submit-button" disabled={!imageData}>
+          Process Invoice
+        </button>
       </form>
       {invoiceResult && (
-        <div>
-          <h4>Invoice Details:</h4>
+        <div className="result-container">
+          <h4>Invoice OCR Result:</h4>
           <pre>{JSON.stringify(invoiceResult, null, 2)}</pre>
         </div>
       )}

@@ -7,7 +7,8 @@
 
 .invoice-uploader h3 {
   color: #a6ff00;
-  margin-bottom: 20px;
+  margin: 0 0 20px 0;
+  font-size: 18px;
 }
 
 .upload-form {
@@ -16,36 +17,43 @@
   gap: 15px;
 }
 
+.file-input-container {
+  position: relative;
+}
+
 .file-input {
+  width: 100%;
+  padding: 15px;
   background-color: #1a1a1a;
   border: 2px dashed #333;
   border-radius: 6px;
-  padding: 20px;
-  text-align: center;
+  color: #fff;
   cursor: pointer;
-  transition: border-color 0.2s ease;
+  transition: all 0.2s ease;
 }
 
 .file-input:hover {
   border-color: #a6ff00;
+  background-color: #1f1f1f;
 }
 
-.upload-button {
+.submit-button {
   background-color: #a6ff00;
   color: #000;
   border: none;
-  padding: 10px 20px;
+  padding: 12px 20px;
   border-radius: 6px;
   font-weight: bold;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: all 0.2s ease;
 }
 
-.upload-button:hover {
+.submit-button:hover:not(:disabled) {
   background-color: #8ce000;
+  transform: translateY(-1px);
 }
 
-.upload-button:disabled {
+.submit-button:disabled {
   background-color: #333;
   color: #666;
   cursor: not-allowed;
@@ -61,7 +69,8 @@
 
 .result-container h4 {
   color: #a6ff00;
-  margin-bottom: 10px;
+  margin: 0 0 10px 0;
+  font-size: 16px;
 }
 
 .result-container pre {
@@ -71,13 +80,7 @@
   overflow-x: auto;
   color: #fff;
   font-size: 14px;
-}
-
-.error-message {
-  color: #ff4444;
-  background-color: rgba(255, 68, 68, 0.1);
-  padding: 10px;
-  border-radius: 6px;
-  margin-top: 10px;
-  border: 1px solid #ff4444;
+  margin: 0;
+  white-space: pre-wrap;
+  word-wrap: break-word;
 }

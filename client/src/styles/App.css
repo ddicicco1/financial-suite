@@ -1,60 +1,68 @@
-:root {
-  --primary-bg: #121212;
-  --secondary-bg: #1e1e1e;
-  --accent-color: #32CD32;
-  --text-primary: #ffffff;
-  --text-secondary: #b3b3b3;
-  --border-color: #333333;
-  --hover-bg: #2a2a2a;
-  --card-bg: #242424;
-}
-
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
-    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-color: var(--primary-bg);
-  color: var(--text-primary);
+  padding: 0;
+  background-color: #000; /* Black background */
+  color: #fff;
+  font-family: Arial, sans-serif;
+}
+
+a {
+  color: #a6ff00; /* Lime green links */
+  text-decoration: none;
 }
 
 .app-container {
-  padding: 20px;
-}
-
-.info-box {
-  background-color: var(--secondary-bg);
-  border-left: 4px solid var(--accent-color);
-  padding: 15px 20px;
-  margin-bottom: 20px;
-  border-radius: 4px;
   display: flex;
-  align-items: center;
-  gap: 15px;
-  font-size: 0.9rem;
-  color: var(--text-primary);
+  height: 100vh;
 }
 
-.info-box span[role="img"] {
-  font-size: 1.2rem;
+.left-nav {
+  width: 220px;
+  background-color: #111; /* Darker shade for left nav */
+  padding: 20px;
+  border-right: 1px solid #333;
 }
 
-/* Scrollbar styling */
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+.left-nav ul {
+  list-style-type: none;
+  padding: 0;
 }
 
-::-webkit-scrollbar-track {
-  background: var(--primary-bg);
+.left-nav li {
+  margin-bottom: 15px;
+  font-size: 16px;
+  cursor: pointer;
 }
 
-::-webkit-scrollbar-thumb {
-  background: var(--border-color);
-  border-radius: 4px;
+.top-info {
+  background-color: #111;
+  color: #a6ff00;
+  padding: 10px 20px;
+  font-size: 18px;
+  border-bottom: 1px solid #333;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: var(--accent-color);
+.main-content {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+/* Additional styling for headings and lists */
+h1, h2, h3, h4 {
+  margin: 10px 0;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+button {
+  background-color: #a6ff00;
+  border: none;
+  padding: 8px 16px;
+  color: #000;
+  cursor: pointer;
+  font-weight: bold;
 }

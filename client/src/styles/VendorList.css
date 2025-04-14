@@ -1,39 +1,112 @@
 .vendor-list {
-  text-align: left;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  min-height: 200px;
 }
 
-.vendor-items {
+.vendor-list h3 {
+  margin: 0 0 20px 0;
+  color: #333;
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.vendor-list ul {
   list-style: none;
   padding: 0;
   margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-.vendor-item {
+.vendor-list li {
   padding: 15px;
-  border: 1px solid #ddd;
-  margin-bottom: 10px;
+  border: 1px solid #eee;
   border-radius: 4px;
+  transition: all 0.2s ease;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+}
+
+.vendor-list li:hover {
   background-color: #f8f9fa;
+  border-color: #007bff;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
-.vendor-item h3 {
-  margin: 0 0 10px 0;
-  color: #333;
+.vendor-name {
+  font-weight: 500;
+  color: #2c3e50;
+  font-size: 1rem;
 }
 
-.vendor-item p {
-  margin: 5px 0;
-  color: #666;
+.vendor-updated {
+  color: #6c757d;
+  font-size: 0.85rem;
+  white-space: nowrap;
+  margin-left: 15px;
 }
 
-.loading {
-  color: #666;
+/* Empty state */
+.no-vendors {
   text-align: center;
-  padding: 20px;
+  padding: 30px;
+  color: #6c757d;
+  background-color: #f8f9fa;
+  border-radius: 4px;
+  font-style: italic;
+  border: 1px dashed #dee2e6;
 }
 
-.error {
-  color: #dc3545;
-  text-align: center;
-  padding: 20px;
+/* Responsive design */
+@media (max-width: 768px) {
+  .vendor-list li {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+
+  .vendor-updated {
+    margin-left: 0;
+  }
+}
+
+/* Animation for new vendors */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.vendor-list li {
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* Hover state improvements */
+.vendor-list li:hover .vendor-name {
+  color: #007bff;
+}
+
+/* Loading state (if needed) */
+.vendor-list.loading {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+/* Error state (if needed) */
+.vendor-list.error {
+  border: 1px solid #dc3545;
 }

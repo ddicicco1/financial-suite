@@ -1,21 +1,24 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import InvoiceUploader from './InvoiceUploader';
 import VendorList from './VendorList';
-import '../styles/Dashboard.css';
 
-function Dashboard() {
+const Dashboard = () => {
+  const [vendors, setVendors] = useState([]);
+
+  useEffect(() => {
+    fetch('/api/vendors')
+      .then((response) => response.json())
+      .then(setVendors)
+      .catch(err => console.error("Failed to load vendors:", err));
+  }, []);
+
   return (
-    <div className="dashboard">
-      <div className="dashboard-grid">
-        <div className="dashboard-item">
-          <InvoiceUploader />
-        </div>
-        <div className="dashboard-item">
-          <VendorList />
-        </div>
-      </div>
+    <div>
+      <h2>Expense Dashboard</h2>
+      <InvoiceUploader />
+      <VendorList vendors={vendors} />
     </div>
   );
-}
+};
 
 export default Dashboard;

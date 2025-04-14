@@ -1,66 +1,106 @@
 import React, { useState } from 'react';
-import '../styles/InvoiceUploader.css';
+import './InvoiceUploader.css';
 
-function InvoiceUploader() {
-  const [file, setFile] = useState(null);
-  const [uploading, setUploading] = useState(false);
-  const [result, setResult] = useState(null);
+const InvoiceUploader = () => {
+  const [imageData, setImageData] = useState(null);
+  const [invoiceResult, setInvoiceResult] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const [fileName, setFileName] = useState('');
 
   const handleFileChange = (e) => {
-    if (e.target.files[0]) {
-      setFile(e.target.files[0]);
+    const file = e.target.files[0];
+    setError(null);
+    setInvoiceResult(null);
+    
+    // Validate file type
+    if (file && !file.type.startsWith('image/')) {
+      setError('Please upload an image file');
+      return;
+    }
+
+    // Validate file size (max 5MB)
+    if (file && file.size > 5 * 1024 * 1024) {
+      setError('File size should be less than 5MB');
+      return;
+    }
+
+    if (file) {
+      setFileName(file.name);
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setImageData(reader.result);
+      };
+      reader.onerror = () => {
+        setError('Error reading file');
+      };
+      reader.readAsDataURL(file);
     }
   };
 
-  const handleUpload = async () => {
-    if (!file) return;
-
-    const formData = new FormData();
-    formData.append('invoice', file);
-    setUploading(true);
-
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!imageData) return;
+    
+    setLoading(true);
+    setError(null);
+    
     try {
-      const response = await fetch('http://localhost:3001/api/ocr/process', {
+      const response = await fetch('/api/ocr', {
         method: 'POST',
-        body: formData,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ imageData })
       });
-
+      
+      if (!response.ok) {
+        throw new Error('Failed to process invoice');
+      }
+      
       const data = await response.json();
-      setResult(data);
-    } catch (error) {
-      console.error('Error uploading file:', error);
-      setResult({ error: 'Failed to upload file' });
+      setInvoiceResult(data);
+    } catch (err) {
+      setError(err.message || 'Error processing invoice');
+    } finally {
+      setLoading(false);
     }
-
-    setUploading(false);
   };
 
   return (
-    <div className="invoice-uploader">
-      <h2>Upload Invoice</h2>
-      <div className="upload-container">
-        <input
-          type="file"
-          accept=".pdf,.png,.jpg,.jpeg"
-          onChange={handleFileChange}
-          className="file-input"
-        />
+    <div className={`invoice-uploader ${loading ? 'loading' : ''}`}>
+      <h3>Upload Invoice</h3>
+      <form onSubmit={handleSubmit}>
+        <div className="file-input-container">
+          <input 
+            type="file" 
+            accept="image/*"
+            onChange={handleFileChange}
+            disabled={loading}
+          />
+          {fileName && <p className="file-name">{fileName}</p>}
+        </div>
+        
         <button 
-          onClick={handleUpload} 
-          disabled={!file || uploading}
-          className="upload-button"
+          type="submit" 
+          disabled={!imageData || loading}
         >
-          {uploading ? 'Uploading...' : 'Upload'}
+          {loading ? 'Processing...' : 'Process Invoice'}
         </button>
-      </div>
-      {result && (
-        <div className="result-container">
-          <h3>Results:</h3>
-          <pre>{JSON.stringify(result, null, 2)}</pre>
+      </form>
+
+      {error && (
+        <div className="error-message">
+          {error}
+        </div>
+      )}
+
+      {invoiceResult && (
+        <div className="invoice-details">
+          <h4>Invoice Details:</h4>
+          <pre>{JSON.stringify(invoiceResult, null, 2)}</pre>
         </div>
       )}
     </div>
   );
-}
+};
 
 export default InvoiceUploader;

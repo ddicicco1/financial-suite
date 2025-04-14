@@ -4,16 +4,23 @@
   padding: 20px;
 }
 
-.dashboard-grid {
+h2 {
+  color: #333;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+/* Grid layout for components */
+.dashboard > div {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: 1fr;
   gap: 20px;
   margin-top: 20px;
 }
 
-.dashboard-item {
-  background: #fff;
-  border-radius: 8px;
-  padding: 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+/* Responsive design */
+@media (min-width: 768px) {
+  .dashboard > div {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }

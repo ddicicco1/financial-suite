@@ -1,5 +1,5 @@
 import React from 'react';
-import './VendorList.css';
+import '../styles/VendorList.css';
 
 const VendorList = ({ vendors = [] }) => {
   // Helper function to format the date
@@ -47,16 +47,5 @@ const VendorList = ({ vendors = [] }) => {
     </div>
   );
 };
-
-// Add prop types if you're using TypeScript or PropTypes
-// VendorList.propTypes = {
-//   vendors: PropTypes.arrayOf(
-//     PropTypes.shape({
-//       id: PropTypes.string,
-//       name: PropTypes.string.isRequired,
-//       lastUpdated: PropTypes.string.isRequired,
-//     })
-//   ),
-// };
 
 export default VendorList;

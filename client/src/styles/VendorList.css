@@ -1,56 +1,43 @@
 .vendor-list {
-  padding: 20px;
-  background-color: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.vendor-list h3 {
-  margin: 0 0 20px 0;
-  color: #333;
-  font-size: 1.5rem;
+  background-color: var(--secondary-bg);
+  border-radius: 6px;
 }
 
 .vendor-list ul {
   list-style: none;
   padding: 0;
   margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .vendor-list li {
-  padding: 15px;
-  border: 1px solid #eee;
+  padding: 12px 15px;
   border-radius: 4px;
-  margin-bottom: 10px;
+  background-color: var(--card-bg);
   transition: all 0.2s ease;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
 
 .vendor-list li:hover {
-  background-color: #f8f9fa;
-  border-color: #dee2e6;
-  transform: translateY(-1px);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transform: translateX(5px);
+  background-color: var(--hover-bg);
 }
 
 .vendor-name {
+  color: var(--text-primary);
   font-weight: 500;
-  color: #2c3e50;
 }
 
 .vendor-updated {
-  color: #6c757d;
-  font-size: 0.9rem;
+  color: var(--text-secondary);
+  font-size: 0.8rem;
 }
 
-/* Empty state */
 .no-vendors {
+  padding: 20px;
   text-align: center;
-  padding: 30px;
-  color: #6c757d;
-  background-color: #f8f9fa;
+  color: var(--text-secondary);
+  background-color: var(--card-bg);
   border-radius: 4px;
-  font-style: italic;
 }

@@ -1,17 +1,18 @@
 import React from 'react';
-import Dashboard from './components/Dashboard';
+import Layout from './components/Layout';
 import './styles/App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Financial Suite MVP Dashboard</h1>
-      </header>
-      <main className="App-main">
-        <Dashboard />
-      </main>
-    </div>
+    <Layout>
+      <div className="app-container">
+        <div className="info-box">
+          <span role="img" aria-label="rocket">🚀</span> Welcome to Financial Suite MVP
+          <span role="img" aria-label="lightning">⚡</span> Process invoices instantly
+          <span role="img" aria-label="chart">📈</span> Track vendor data
+        </div>
+      </div>
+    </Layout>
   );
 }
 

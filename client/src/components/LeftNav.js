@@ -16,6 +16,11 @@ const LeftNav = () => {
           </NavLink>
         </li>
         <li>
+          <NavLink to="/bill-pay" className={({ isActive }) => isActive ? 'active' : ''}>
+            💵 Bill Pay
+          </NavLink>
+        </li>
+        <li>
           <NavLink to="/vendors" className={({ isActive }) => isActive ? 'active' : ''}>
             🗂 Vendors
           </NavLink>

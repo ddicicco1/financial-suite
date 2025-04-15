@@ -1,0 +1,246 @@
+.bill-pay-page {
+  padding: 20px;
+}
+
+.bill-pay-page h1 {
+  color: #a6ff00;
+  margin-bottom: 30px;
+  font-size: 24px;
+}
+
+.bill-pay-grid {
+  display: grid;
+  gap: 20px;
+}
+
+/* Summary Section */
+.bill-pay-summary {
+  background: #111;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #333;
+}
+
+.summary-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.summary-card {
+  background: #1a1a1a;
+  padding: 20px;
+  border-radius: 6px;
+  border: 1px solid #333;
+}
+
+.summary-card h3 {
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.summary-card .amount {
+  color: #a6ff00;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.summary-card .detail {
+  color: #666;
+  font-size: 14px;
+}
+
+/* Bills List */
+.bills-list {
+  background: #111;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #333;
+}
+
+.bills-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.bills-header h2 {
+  color: #fff;
+  margin: 0;
+}
+
+.bills-filters select {
+  background: #1a1a1a;
+  border: 1px solid #333;
+  color: #fff;
+  padding: 8px;
+  border-radius: 4px;
+}
+
+/* Bills Table */
+.bills-table {
+  border: 1px solid #333;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.table-header {
+  display: grid;
+  grid-template-columns: 40px 2fr 1fr 1fr 1fr 1fr;
+  background: #1a1a1a;
+  padding: 12px;
+  color: #666;
+  font-weight: bold;
+  border-bottom: 1px solid #333;
+}
+
+.table-row {
+  display: grid;
+  grid-template-columns: 40px 2fr 1fr 1fr 1fr 1fr;
+  padding: 12px;
+  border-bottom: 1px solid #333;
+  align-items: center;
+}
+
+.table-row:hover {
+  background: #1a1a1a;
+}
+
+.checkbox-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vendor-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.vendor-name {
+  color: #fff;
+  font-weight: bold;
+}
+
+.invoice-number {
+  color: #666;
+  font-size: 12px;
+}
+
+.recurring-badge {
+  display: inline-block;
+  background: #2d3436;
+  color: #a6ff00;
+  padding: 2px 6px;
+  border-radius: 12px;
+  font-size: 12px;
+}
+
+.amount-cell {
+  color: #a6ff00;
+  font-weight: bold;
+}
+
+.date-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.overdue-label {
+  color: #dc3545;
+  font-size: 12px;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  text-transform: capitalize;
+}
+
+.status-badge.pending {
+  background: #2d3436;
+  color: #ffd700;
+}
+
+.status-badge.scheduled {
+  background: #2d3436;
+  color: #a6ff00;
+}
+
+.status-badge.overdue {
+  background: #2d3436;
+  color: #dc3545;
+}
+
+.status-badge.processing {
+  background: #2d3436;
+  color: #00bcd4;
+}
+
+.actions-cell {
+  display: flex;
+  gap: 8px;
+}
+
+.pay-btn, .view-btn {
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  cursor: pointer;
+  border: none;
+}
+
+.pay-btn {
+  background: #a6ff00;
+  color: #000;
+}
+
+.view-btn {
+  background: #2d3436;
+  color: #fff;
+}
+
+/* Payment Schedule */
+.payment-schedule {
+  background: #111;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #333;
+}
+
+.calendar-placeholder {
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #1a1a1a;
+  border-radius: 6px;
+  color: #666;
+  border: 2px dashed #333;
+  margin-top: 20px;
+}
+
+/* Buttons */
+.pay-selected-btn {
+  background: #a6ff00;
+  color: #000;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  width: 100%;
+}
+
+.pay-selected-btn:disabled {
+  background: #333;
+  color: #666;
+  cursor: not-allowed;
+}

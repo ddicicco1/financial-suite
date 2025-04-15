@@ -7,6 +7,8 @@ import InvoicesPage from '../pages/InvoicesPage';
 import VendorsPage from '../pages/VendorsPage';
 import InsightsPage from '../pages/InsightsPage';
 import SettingsPage from '../pages/SettingsPage';
+import BillPayPage from '../pages/BillPayPage';
+import AiChat from './AiChat';
 import '../styles/Layout.css';
 
 const Layout = () => {
@@ -24,9 +26,11 @@ const Layout = () => {
               <Route path="/vendors" element={<VendorsPage />} />
               <Route path="/insights" element={<InsightsPage />} />
               <Route path="/settings" element={<SettingsPage />} />
+              <Route path="/bill-pay" element={<BillPayPage />} />
             </Routes>
           </main>
         </div>
+        <AiChat />
       </div>
     </Router>
   );

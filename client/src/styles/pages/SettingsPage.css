@@ -1,0 +1,116 @@
+.settings-page {
+  padding: 20px;
+}
+
+.settings-page h1 {
+  color: #a6ff00;
+  margin-bottom: 30px;
+  font-size: 24px;
+}
+
+.settings-grid {
+  display: grid;
+  gap: 20px;
+}
+
+.settings-section {
+  margin-bottom: 30px;
+}
+
+.settings-section h2 {
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.settings-card {
+  background: #111;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #333;
+  margin-bottom: 20px;
+}
+
+.settings-card h3 {
+  color: #a6ff00;
+  margin-bottom: 20px;
+}
+
+.settings-form {
+  display: grid;
+  gap: 15px;
+}
+
+.form-group {
+  display: grid;
+  gap: 5px;
+}
+
+.form-group label {
+  color: #666;
+  font-size: 14px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group select {
+  background: #1a1a1a;
+  border: 1px solid #333;
+  padding: 8px 12px;
+  border-radius: 4px;
+  color: #fff;
+  width: 100%;
+}
+
+.form-group input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+.save-btn {
+  background: #a6ff00;
+  color: #000;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.integration-status {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+  padding: 10px;
+  border-radius: 4px;
+  background: #1a1a1a;
+}
+
+.integration-status.connected {
+  color: #198754;
+}
+
+.disconnect-btn {
+  background: #dc3545;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.notification-settings {
+  display: grid;
+  gap: 10px;
+}
+
+.notification-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #fff;
+}
+
+.notification-option input[type="checkbox"] {
+  accent-color: #a6ff00;
+}

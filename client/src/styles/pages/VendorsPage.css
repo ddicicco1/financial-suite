@@ -1,0 +1,131 @@
+.vendors-page {
+  padding: 20px;
+}
+
+.vendors-page h1 {
+  color: #a6ff00;
+  margin-bottom: 30px;
+  font-size: 24px;
+}
+
+.vendor-management {
+  background: #111;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #333;
+}
+
+.add-vendor-btn {
+  background: #a6ff00;
+  color: #000;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.vendor-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.vendor-card {
+  background: #1a1a1a;
+  padding: 20px;
+  border-radius: 6px;
+  border: 1px solid #333;
+}
+
+.vendor-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.vendor-card h3 {
+  color: #fff;
+  margin: 0;
+}
+
+.status {
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  text-transform: capitalize;
+}
+
+.status.active {
+  background: #198754;
+  color: #fff;
+}
+
+.status.inactive {
+  background: #dc3545;
+  color: #fff;
+}
+
+.vendor-info {
+  color: #666;
+  margin-bottom: 15px;
+}
+
+.vendor-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.stat {
+  background: #111;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.stat .label {
+  color: #666;
+  font-size: 12px;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.stat .value {
+  color: #a6ff00;
+  font-weight: bold;
+}
+
+.vendor-analytics {
+  background: #111;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #333;
+  margin-top: 20px;
+}
+
+.analytics-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.analytics-card {
+  background: #1a1a1a;
+  padding: 20px;
+  border-radius: 6px;
+  border: 1px solid #333;
+}
+
+.chart-placeholder {
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+  border: 2px dashed #333;
+  border-radius: 4px;
+  margin-top: 15px;
+}

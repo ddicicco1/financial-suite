@@ -1,0 +1,15 @@
+.page {
+  padding: 20px;
+}
+
+.page h1 {
+  color: #a6ff00;
+  margin-bottom: 30px;
+  font-size: 24px;
+}
+
+.dashboard-page .page-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}

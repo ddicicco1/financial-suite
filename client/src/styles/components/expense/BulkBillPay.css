@@ -1,0 +1,196 @@
+.bulk-bill-pay {
+  background: #111;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #333;
+}
+
+.bulk-bill-pay h3 {
+  color: #fff;
+  margin: 0 0 15px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.payment-summary {
+  background: #1a1a1a;
+  padding: 15px;
+  border-radius: 6px;
+  margin-bottom: 15px;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.summary-row:last-child {
+  margin-bottom: 0;
+}
+
+.summary-row .amount {
+  color: #a6ff00;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.payment-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.pay-selected-btn {
+  background: #a6ff00;
+  color: #000;
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.2s ease;
+}
+
+.pay-selected-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(166, 255, 0, 0.2);
+}
+
+.pay-selected-btn:disabled {
+  background: #333;
+  color: #666;
+  cursor: not-allowed;
+}
+
+.schedule-btn {
+  background: #2d3436;
+  color: #fff;
+  border: 1px solid #333;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.schedule-btn:hover:not(:disabled) {
+  border-color: #a6ff00;
+  color: #a6ff00;
+}
+
+.schedule-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.invoices-list {
+  border: 1px solid #333;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.list-header {
+  background: #1a1a1a;
+  padding: 10px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #333;
+}
+
+.select-all {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.select-all input[type="checkbox"] {
+  accent-color: #a6ff00;
+}
+
+.header-count {
+  color: #666;
+  font-size: 14px;
+}
+
+.invoice-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 15px;
+  border-bottom: 1px solid #333;
+  transition: background-color 0.2s ease;
+}
+
+.invoice-row:last-child {
+  border-bottom: none;
+}
+
+.invoice-row:hover {
+  background: #1a1a1a;
+}
+
+.invoice-select {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.invoice-select input[type="checkbox"] {
+  accent-color: #a6ff00;
+}
+
+.invoice-details {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.vendor-name {
+  color: #fff;
+}
+
+.invoice-meta {
+  color: #666;
+  font-size: 12px;
+}
+
+.invoice-amount {
+  text-align: right;
+}
+
+.amount {
+  color: #a6ff00;
+  font-weight: bold;
+  display: block;
+}
+
+.status {
+  font-size: 12px;
+  padding: 2px 6px;
+  border-radius: 12px;
+  text-transform: capitalize;
+}
+
+.status.due-soon {
+  color: #ffd700;
+  background: rgba(255, 215, 0, 0.1);
+}
+
+.status.upcoming {
+  color: #00bcd4;
+  background: rgba(0, 188, 212, 0.1);
+}
+
+.status.overdue {
+  color: #dc3545;
+  background: rgba(220, 53, 69, 0.1);
+}

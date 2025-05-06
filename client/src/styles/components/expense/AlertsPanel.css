@@ -1,0 +1,77 @@
+.alerts-panel {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  padding-bottom: 5px;
+}
+
+.alert-card {
+  background: #1a1a1a;
+  padding: 12px 15px;
+  border-radius: 6px;
+  border: 1px solid #333;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 300px;
+}
+
+.alert-card.high {
+  border-color: #dc3545;
+  background: rgba(220, 53, 69, 0.1);
+}
+
+.alert-card.medium {
+  border-color: #ffd700;
+  background: rgba(255, 215, 0, 0.1);
+}
+
+.alert-card.low {
+  border-color: #198754;
+  background: rgba(25, 135, 84, 0.1);
+}
+
+.alert-icon {
+  font-size: 20px;
+}
+
+.alert-message {
+  color: #fff;
+  font-size: 14px;
+  flex: 1;
+}
+
+.alert-action {
+  background: transparent;
+  border: 1px solid #333;
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.alert-action:hover {
+  border-color: #a6ff00;
+  color: #a6ff00;
+}
+
+/* Scrollbar styling */
+.alerts-panel::-webkit-scrollbar {
+  height: 6px;
+}
+
+.alerts-panel::-webkit-scrollbar-track {
+  background: #111;
+}
+
+.alerts-panel::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 3px;
+}
+
+.alerts-panel::-webkit-scrollbar-thumb:hover {
+  background: #a6ff00;
+}

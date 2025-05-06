@@ -1,0 +1,97 @@
+.location-selector {
+  position: relative;
+}
+
+.location-dropdown-toggle {
+  background: #1a1a1a;
+  border: 1px solid #333;
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  min-width: 200px;
+}
+
+.location-icon {
+  font-size: 16px;
+}
+
+.arrow {
+  margin-left: auto;
+  font-size: 10px;
+  transition: transform 0.2s ease;
+}
+
+.arrow.up {
+  transform: rotate(180deg);
+}
+
+.location-dropdown {
+  position: absolute;
+  top: calc(100% + 5px);
+  left: 0;
+  width: 100%;
+  background: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 6px;
+  padding: 8px;
+  z-index: 100;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.location-option {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.location-option:hover {
+  background: #2d3436;
+}
+
+.location-option input[type="checkbox"] {
+  margin-right: 8px;
+  accent-color: #a6ff00;
+}
+
+.location-name {
+  flex: 1;
+  color: #fff;
+}
+
+.location-meta {
+  color: #666;
+  font-size: 12px;
+}
+
+.location-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid #333;
+}
+
+.location-actions button {
+  flex: 1;
+  background: #2d3436;
+  border: none;
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: all 0.2s ease;
+}
+
+.location-actions button:hover {
+  background: #a6ff00;
+  color: #000;
+}
